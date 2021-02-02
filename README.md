@@ -65,25 +65,8 @@ https://hackaday.com/2014/10/24/ftdi-screws-up-backs-down/#comment-2059852
 
 Link for the board driver from https://support.th3dstudio.com/hc/downloads/drivers/creality-printer-drivers-ft232r-chip-most-models/
 
-
-
 ---
 
 ## Updating the Firmware
 
-https://www.youtube.com/watch?v=Ib188-ACa08
-https://marlinfw.org/meta/download/
-https://marlinfw.org/docs/hardware/boards.html
-
-https://github.com/olikraus/U8glib_Arduino
-
-
-
-Filename or extension too long https://github.com/olikraus/U8glib_Arduino/issues/9
-
-PlatformIO https://github.com/olikraus/U8glib_Arduino/issues/9
-
-
-Reducing space
-https://github.com/MarlinFirmware/Marlin/issues/5216
-https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/
+(to be added at a later date)
