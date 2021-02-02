@@ -1,0 +1,57 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/Marlin",
+                "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/libdeps/mega2560/U8glib-HAL/src",
+                "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "C:/Users/dalla/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "C:/Users/dalla/.platformio/packages/framework-arduino-avr/variants/mega",
+                "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/Marlin",
+                    "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/libdeps/mega2560/U8glib-HAL/src",
+                    "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                    "C:/Users/dalla/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "C:/Users/dalla/.platformio/packages/framework-arduino-avr/variants/mega",
+                    "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=50100",
+                "ARDUINO_AVR_MEGA2560",
+                "__MARLIN_FIRMWARE__",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATmega2560__",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "C:/Users/dalla/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=atmega2560",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
