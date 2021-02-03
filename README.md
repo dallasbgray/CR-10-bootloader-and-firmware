@@ -62,6 +62,8 @@ To burn the bootloader plug in the Arduino Uno, go to Tools and select:
 
 It should be done in a few seconds and there you have it, the bootloader has been flashed to your board once and for all! Now you can update the firmware whenever you'd like!!!
 
+<img src="/assets/marlin_boot.jpg" width=200>
+
 ![Marlin Splashscreen](/assets/marlin_boot.jpg?raw=true)
 
 There's currently no firmware on the board now, so check out the steps below to get that started!
