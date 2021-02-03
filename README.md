@@ -35,7 +35,7 @@ Connect the Uno to the IDE and select the right COM port. Now we're going to go 
 
 Unplug the printer and unscrew the bottom panel. Remove power supply but be careful due to the short wires. Just so long as we can see/access the main board inside. There will be 6 pins in a 2x3 arrangement at an edge of both the Arduino Uno board and the Melzi board. 
 
-<img src="/assets/melzi_pinout.jpg" width=500 alt="Figure 1: Melzi Pinout">
+<img src="/assets/melzi_pinout.jpg" width=400 alt="Figure 1: Melzi Pinout">
 
 Attach the cables as shown below, each pin corresponds directly with the same pin on the other board except for the reset pin on the Melzi which plugs into digital pin 10 on the Uno. The reset pin on the Uno will remain unconnected.
 
@@ -47,7 +47,7 @@ Attach the cables as shown below, each pin corresponds directly with the same pi
 - RESET ---> Digital Pin 10
 - GND -----> GND   
 
-<img src="/assets/completed_wiring.jpg" width=500 alt="Figure 2: Completed Wiring">
+<img src="/assets/completed_wiring.jpg" width=400 alt="Figure 2: Completed Wiring">
 
 If you are on a version of Melzi before v1.1.4 there is probably a little switch on it that lets you switch from the PSU power to USB power, so go ahead and move the switch so it will be powered via the USB cable you had set aside from earlier.
 
@@ -71,11 +71,11 @@ To burn the bootloader plug in the Arduino Uno, go to Tools and select:
 
 It should be done in a few seconds and there you have it, the bootloader has been flashed to your board once and for all! Now you can update the firmware whenever you'd like!!!
 
-<img src="/assets/marlin_splashscreen.jpg" width=500 alt="Figure 3: Marlin Splashscreen">
+<img src="/assets/marlin_splashscreen.jpg" width=400 alt="Figure 3: Marlin Splashscreen">
 
 There's currently no firmware on the board now and you'll get a blank screen, so check out the steps below to add the firmware!
 
-Referenes: This [Instructable article](8) was very informative as well as the [YouTube video](2) mentioned above
+References: This [Instructable article](8) was very informative as well as the [YouTube video](2) mentioned above
 
 If you are curious about the issue with FDTI chips that makes the Melzi sometimes not appear on the COM ports check out this [FTDI driver problem](4) and look at the threads which discuss the ripoff chips that drivers tend to have issues with. In theory it was fixed, but even with Windows v2004 I still had a problem with this. I solved it with the [driver from TH3D](7) so if you have issues try this out. For other board versions look at this [TH3D webpage](9).
 
@@ -133,5 +133,5 @@ After the plugin is set up:
 [12]: https://github.com/olikraus/U8glib_Arduino
 [13]: https://github.com/olikraus/U8glib_Arduino/issues/9 "Filename or extension too long"
 [14]: https://github.com/olikraus/U8glib_Arduino/issues/9 "PlatformIO"
-[15]: https://github.com/MarlinFirmware/Marlin/issues/5216 
-[16]: https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/
+[15]: https://github.com/MarlinFirmware/Marlin/issues/5216 "Reduding firmware size 1"
+[16]: https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/ "Reducing firmware size 2"
