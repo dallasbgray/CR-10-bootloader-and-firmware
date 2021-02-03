@@ -28,19 +28,19 @@ Connect the Uno to the IDE and select the right COM port. Now we're going to go 
 
 Unplug the printer and unscrew the bottom panel. Remove power supply but be careful due to the short wires. Just so long as we can see/access the main board inside. There will be 6 pins in a 2x3 arrangement at an edge of both the Arduino Uno board and the Melzi board. 
 
- **IMAGES COMING SOON**
+ ![melzi_pinout.jpg]
 
 Attach the cables as shown below, each pin corresponds directly with the same pin on the other board except for the reset pin on the Melzi which plugs into digital pin 10 on the Uno. The reset pin on the Uno will remain unconnected.
 
-Melzi ---> Arduino Uno
-MISO ----> MISO
-VCC -----> VCC
-SCK -----> SCK
-MOSI ----> MOSI
-RESET ---> Digital Pin 10
-GND -----> GND   
+#### Melzi ---> Arduino Uno
+- MISO ----> MISO
+- VCC -----> VCC
+- SCK -----> SCK
+- MOSI ----> MOSI
+- RESET ---> Digital Pin 10
+- GND -----> GND   
 
-**IMAGES COMING SOON**
+![uno_wiring.jpg]
 
 If you are on a version of Melzi before v1.1.4 there is probably a little switch on it that lets you switch from the PSU power to USB power, so go ahead and move the switch so it will be powered via the USB cable you had set aside from earlier.
 
@@ -55,15 +55,16 @@ Both boards should power on when either one is plugged in.
 If this process fails you will have erased the firmware on the board and will not have a bootloader to load firmware over USB so you would have to burn a bootloader successfully in order to get firmware back on the board.
 
 To burn the bootloader plug in the Arduino Uno, go to Tools and select:
-- Sanguino as the board
-- Processor as the ATmega1248p (16MHz)
-- Port as the Arduino Uno (NOT the Sanguino/Melzi. I know I know, it's a lot of names for the same thing, but the ISP is an In System Programmer not your Internet Service Provider, so in simple terms we're using the Uno as an interface to program the Melzi)
-- Programmer as Arduino as ISP (very important to select "Arduino as ISP" and not "ArduinoISP" or the other alternatives) 
-- Select burn bootloader
-
-**IMAGES COMING SOON**
+1. Sanguino as the board
+2. Processor as the ATmega1248p (16MHz)
+3. Port as the Arduino Uno (NOT the Sanguino/Melzi)
+    - I know I know, it's a lot of names for the same board. Also, the ISP is an In System Programmer not your Internet Service Provider, so we're using the Uno in order to program the Melzi.
+4. Programmer as Arduino as ISP (very important to select "Arduino as ISP" and not "ArduinoISP" or the other alternatives) 
+5. Select burn bootloader
 
 It should be done in a few seconds and there you have it, the bootloader has been flashed to your board once and for all! Now you can update the firmware whenever you'd like!!!
+
+![marlin_boot.jpg]
 
 There's currently no firmware on the board now, so check out the steps below to get that started!
 
