@@ -22,7 +22,7 @@ You will need:
 - 1 female-to-male gpio cable
 - USB cables for the Arduino Uno and the Melzi.
 
-Connect the Uno to the IDE and select the right COM port. Now we're going to go to File -> Examples -> ArduinoISP -> Select the ArduinoISP file and upload it to the Uno (of course make sure to select the Arduino Uno in the boards manager).
+Connect the Uno to the IDE and select the right COM port. Now we're going to go to File -> Examples -> ArduinoISP -> Select the ArduinoISP file and upload it to the Uno (of course make sure to select the Arduino Uno in the boards manager). I've provided the ArduinoISP example file above, but that may go out of date eventually
 
 Unplug the printer and unscrew the bottom panel. Remove power supply but be careful due to the short wires. Just so long as we can see/access the main board inside. There will be 6 pins in a 2x3 arrangement at an edge of both the Arduino Uno board and the Melzi board. 
 
