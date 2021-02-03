@@ -1,9 +1,9 @@
 # CR-10-Marlin
 
-This is a guide I wrote for myself in case I ever need to flash a CR-10 bootloader or firmware again. It's not comprehensive and will assume you know quite a few things like how to install packages in Ubuntu or Debian and that you have Octoprint configured, but it will offer guidance (cause it's a guide) so you'll know what to Google next! In addition most of this information is compiled from a number of videos, articles, and forum threads which I will link appropriately. 
+This is a guide I wrote for myself in case I ever need to flash a CR-10 bootloader or firmware again. It's not comprehensive and will assume you know quite a few things like how to install packages in Ubuntu or Debian and that you are familiar with the Arduino IDE and Octoprint, but it will offer guidance so you'll know what to Google next! Most of this information is compiled from a number of videos, articles, and forum threads which I will link appropriately. 
 
 This is ONLY for the CR-10 3D printer! The general process may apply to most 3D printers but any specific firmware, AVRISP, flashing method, is device specific! The instructions are for Windows 10, although it's probably easier on a Mac/Linux due to drivers being built in. 
-    Note: I **do not recommend** \using the firmware I have uploaded here and instead strongly suggest you go to [Marlin's website](1) in order get the latest firmware. This repository holds the firmware I used as my last known good configuration, so it's a personal 'backup' in a sense. Likely the only file you'll need is the CH340 driver if you are on Windows 10 for the Melzi board.
+    Note: I **do not recommend** \using the firmware I have uploaded here and instead strongly suggest you go to [Marlin's website](1) in order get the latest firmware. This repository holds the firmware which is my last known good configuration, so it's a 'personal backup' in a sense. Probably the only file you'll need is the CH340 driver if you are on Windows 10 for the Melzi board.
 
 ---
 
@@ -26,7 +26,7 @@ Connect the Uno to the IDE and select the right COM port. Now we're going to go 
 
 Unplug the printer and unscrew the bottom panel. Remove power supply but be careful due to the short wires. Just so long as we can see/access the main board inside. There will be 6 pins in a 2x3 arrangement at an edge of both the Arduino Uno board and the Melzi board. 
 
-<img src="/assets/melzi_pinout.jpg" width=500 alt="Melzi Pinout">
+<img src="/assets/melzi_pinout.jpg" width=500 alt="Figure 1: Melzi Pinout">
 
 Attach the cables as shown below, each pin corresponds directly with the same pin on the other board except for the reset pin on the Melzi which plugs into digital pin 10 on the Uno. The reset pin on the Uno will remain unconnected.
 
@@ -38,11 +38,11 @@ Attach the cables as shown below, each pin corresponds directly with the same pi
 - RESET ---> Digital Pin 10
 - GND -----> GND   
 
-<img src="/assets/completed_wiring.jpg" width=500 alt="Completed Wiring Image">
+<img src="/assets/completed_wiring.jpg" width=500 alt="Figure 2: Completed Wiring">
 
 If you are on a version of Melzi before v1.1.4 there is probably a little switch on it that lets you switch from the PSU power to USB power, so go ahead and move the switch so it will be powered via the USB cable you had set aside from earlier.
 
-WARNING: double check these conenctions are correct!
+**WARNING**: double check these conenctions are correct!
 
 After that, it's time to set up the [Arduino IDE](5)! I used v1.18.13. You'll need the right board drivers, for the Melzi board get the the [Sanguino](6) add-on for the 3D printer hardware. Just paste this link into the add-on board within the IDE preferences: https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json
 
@@ -62,7 +62,7 @@ To burn the bootloader plug in the Arduino Uno, go to Tools and select:
 
 It should be done in a few seconds and there you have it, the bootloader has been flashed to your board once and for all! Now you can update the firmware whenever you'd like!!!
 
-<img src="/assets/marlin_splashscreen.jpg" width=500 alt="Marlin Splashscreen Image">
+<img src="/assets/marlin_splashscreen.jpg" width=500 alt="Figure 3: Marlin Splashscreen">
 
 There's currently no firmware on the board now, so check out the steps below to get that started!
 
@@ -74,9 +74,13 @@ If you are curious about the issue with FDTI chips that makes the Melzi sometime
 
 ## Updating the Firmware
 
-To be added at a later date :)
+To be added at a later date, in the meantime here's some helpful links if you wish to give it a shot :)
 
-
+https://www.youtube.com/watch?v=Ib188-ACa08 https://marlinfw.org/meta/download/ https://marlinfw.org/docs/hardware/boards.html
+https://github.com/olikraus/U8glib_Arduino
+Filename or extension too long https://github.com/olikraus/U8glib_Arduino/issues/9
+PlatformIO https://github.com/olikraus/U8glib_Arduino/issues/9
+Reducing space https://github.com/MarlinFirmware/Marlin/issues/5216 https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/
 
 
 
@@ -100,21 +104,6 @@ To be added at a later date :)
 [17]:
 [18]:
 
-
-
-
-
-
-
-https://www.youtube.com/watch?v=Ib188-ACa08 https://marlinfw.org/meta/download/ https://marlinfw.org/docs/hardware/boards.html
-
-https://github.com/olikraus/U8glib_Arduino
-
-Filename or extension too long https://github.com/olikraus/U8glib_Arduino/issues/9
-
-PlatformIO https://github.com/olikraus/U8glib_Arduino/issues/9
-
-Reducing space https://github.com/MarlinFirmware/Marlin/issues/5216 https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/
 
 
 [//]: # (just experimenting with hiding comments ;)
