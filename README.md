@@ -5,9 +5,11 @@
 This is a guide I wrote for myself in case I ever need to flash a CR-10 bootloader or firmware again. It's not comprehensive and will assume you know quite a few things like how to install packages in Ubuntu or Debian and that you are familiar with the Arduino IDE and Octoprint, but it will offer guidance so you'll know what to Google next! Most of this information is compiled from a number of videos, articles, and forum threads which I will link appropriately. 
 
 This is ONLY for the CR-10 3D printer! The general process may apply to most 3D printers but any specific firmware, AVRISP, flashing method, is device specific! The instructions are for Windows 10, although it's probably easier on a Mac/Linux due to drivers being built in. 
-    Note: I **strongly advise against** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](1) in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config. Check **below** to see what I changed. **EDIT HERE**
+    
+###### Note: 
+I **strongly advise against** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](1) in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config. Check **below** to see what I changed. **EDIT HERE**
 	
-	Probably the only file you'll need is the CH340 driver if you are on Windows 10 for the Melzi board. 
+Probably the only file you'll need is the CH340 driver if you are on Windows 10 for the Melzi board. 
 
 ---
 
