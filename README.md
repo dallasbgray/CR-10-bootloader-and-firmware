@@ -1,4 +1,4 @@
-# CR-10-Bootloader-and-Firmware
+# CR-10 Bootloader and Firmware Guide
 
 [//]: # (just experimenting with hiding comments ;)
 
@@ -55,7 +55,7 @@ If you are on a version of Melzi before v1.1.4 there is a little switch on it th
 
 After that, it's time to set up the [Arduino IDE](5)! I used v1.18.13. You'll need the right board drivers, for the Melzi board get the the [Sanguino](6) add-on for the 3D printer hardware. Just paste this link into the add-on board within the IDE preferences: https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json
 
- Check which COM port the Uno and Melzi appear on by plugging them in. Windows 10 may need a driver if it doesn't show up in the COM ports in Device Manager. Download the driver I got (here from TH3D)[https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/], but you can also download the copy above (CH341SER.exe is the CH430 driver). If the install fails, click 'uninstall' and then re-run the installer again it should succeed. Look up TH3D firmware to give it a shot, they seem to have some popularity due to ease of use and installation of their firmware.
+ Check which COM port the Uno and Melzi appear on by plugging them in. Windows 10 may need a driver if it doesn't show up in the COM ports in Device Manager. Download the driver I got [here from TH3D](https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/), but you can also download the copy above (CH341SER.exe is the CH430 driver). If the install fails, click 'uninstall' and then re-run the installer again it should succeed. Look up TH3D firmware to give it a shot, they seem to have some popularity due to ease of use and installation of their firmware.
 
 Both boards should power on when either one is plugged in.
 
@@ -71,11 +71,11 @@ If this process fails you will have erased the firmware on the board and will no
 
 If you're not sure it should look like this, but with the COM port for the Uno selected:
 
-<img src="/assets/arduino_isp_settings.png" width=400 alt="Figure 3: Arduino IDE Tools Menu">
+<img src="/img/arduino_isp_settings.png" width=400 alt="Figure 3: Arduino IDE Tools Menu">
 
 It should be done in a few seconds and there you have it, the bootloader has been flashed to your board once and for all! Now you can update the firmware whenever you'd like!!!
 
-<img src="/assets/marlin_splashscreen.jpg" width=400 alt="Figure 4: Marlin Splashscreen">
+<img src="/img/marlin_splashscreen.jpg" width=400 alt="Figure 4: Marlin Splashscreen">
 
 There's currently no firmware on the board now and you'll get a blank screen, so check out the steps below to add the firmware!
 
@@ -117,9 +117,9 @@ Check the Tools menu and be sure to have the Sanguino board selected (steps for 
 Select **upload** and you're all set, the firmware has been uploaded to the board! Put it back together, and you're all ready to start printing again.
 
 Errors I ran into:
-*error 1: Header files not found for U8glib*. This means you're missing the [U8glib_Arduino library](12) used for the LCD. Just add the .zip library to the IDE and reupload.
 
-*error 2: Filename or extension too long:* I hit Arduino IDE issues dealing with filenames and file path lengths being too long which I couldn't resolve, so I used VSCode with PlatformIO instead. More info in [this thread](13), but you may be able to figure this out.
+1. *Header files not found for U8glib*. This means you're missing the [U8glib_Arduino library](12) used for the LCD. Just add the .zip library to the IDE and reupload.
+2. *Filename or extension too long:* I hit Arduino IDE issues dealing with filenames and file path lengths being too long which I couldn't resolve, so I used VSCode with PlatformIO instead. More info in [this thread](13), but you may be able to figure this out.
 
 #### 2. Visual Studio with PlatformIO
 
