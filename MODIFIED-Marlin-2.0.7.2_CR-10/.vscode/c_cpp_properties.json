@@ -8,10 +8,10 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/Marlin",
+                "c:/Users/dalla/Desktop/CR-10-bootloader-and-firmware/MODIFIED-Marlin-2.0.7.2_CR-10/Marlin",
                 "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
                 "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
-                "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/libdeps/mega2560/U8glib-HAL/src",
+                "c:/Users/dalla/Desktop/CR-10-bootloader-and-firmware/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/libdeps/mega2560/U8glib-HAL/src",
                 "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                 "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 "C:/Users/dalla/.platformio/packages/framework-arduino-avr/cores/arduino",
@@ -22,10 +22,10 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/Marlin",
+                    "c:/Users/dalla/Desktop/CR-10-bootloader-and-firmware/MODIFIED-Marlin-2.0.7.2_CR-10/Marlin",
                     "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
                     "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
-                    "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/libdeps/mega2560/U8glib-HAL/src",
+                    "c:/Users/dalla/Desktop/CR-10-bootloader-and-firmware/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/libdeps/mega2560/U8glib-HAL/src",
                     "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
                     "C:/Users/dalla/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     "C:/Users/dalla/.platformio/packages/framework-arduino-avr/cores/arduino",
