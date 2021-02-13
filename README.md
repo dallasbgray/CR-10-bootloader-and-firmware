@@ -26,6 +26,8 @@ In order for 3D printer firmware to be updated, it must first have a bootloader.
 
 >My CR-10 came with firmware version 1.1.0 on the Creality [Melzi](https://www.reprap.org/wiki/Melzi#Introduction "Melzi documentation") v1.1.4 board with the ATmega1284p microcontroller.
 
+---
+
 ## Parts List & Wiring
 
 You will need:
@@ -62,12 +64,16 @@ If you are on a version of Melzi before v1.1.4 there is a little switch on it th
 
 Both boards should power on when either one is plugged in.
 
+---
+
 ## Arduino IDE setup
 After that, it's time to set up the [Arduino IDE](https://www.arduino.cc/en/software "Arduino Software Downloads")! I used v1.18.13. You'll need the right board drivers, for the Melzi board get the the [Sanguino](https://github.com/Lauszus/sanguino) add-on for the 3D printer hardware. Just paste this link into the add-on board within the IDE preferences: ```https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json```
 
 >Check which COM port the Uno and Melzi appear on by plugging them in. Windows 10 may need a driver if it doesn't show up in the COM ports in Device Manager. Download the driver I got [here from TH3D](https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/), but you can also download the copy above (CH341SER.exe is the CH430 driver). Here is an [alternate CH340 driver download](https://sparks.gogo.co.nz/ch340.html). If the install fails, click 'uninstall' and then re-run the installer again it should succeed. Look up TH3D firmware to give it a shot, they seem to have some popularity due to ease of use and installation of their firmware.
 
 If this process fails you will have erased the firmware on the board and will not have a bootloader to load firmware back onto the board again. You do need to burn a bootloader successfully in order to upload any firmware back on the board, but if your wiring is correct and the Arduino IDE Tools options are correct you should have no issues.
+
+---
 
 ## Burning the Bootloader
 
@@ -100,21 +106,23 @@ If your board already had a bootloader or you just flashed one, now's the time t
 
 The configuration files don't come by default in the firmware anymore and are on a separate download from the webpage.
 Follow this path:
->config
->>examples
->>>Creality
->>>>CR-10
->>>>>CrealityV1
+> config
+>> examples
+>>> Creality
+>>>> CR-10
+>>>>> CrealityV1
 
 Configuration.h and Configuration_adv.h are needed for Marlin to configure the printer properly, and _Bootscreen.h and _Statusscreen.h are if your 3D printer has an LCD to use. 
 
 Copy those files and past them in the "Marlin" directory of the firmware located here (yes, please select *replace files in destination*):
->Marlin-2.0.x
->>Marlin
+> Marlin-2.0.x
+>> Marlin
 
 [This other YouTube video](https://www.youtube.com/watch?v=Ib188-ACa08 ) was very helpful for figuring out this process.
  
 There are a few ways to do this, I will list three here.
+
+---
 
 ## 1. Update Using the Arduino IDE
 
@@ -130,24 +138,28 @@ Errors I ran into:
 > - *Header files not found for U8glib*: This means you're missing the [U8glib_Arduino library](https://github.com/olikraus/U8glib_Arduino) used for the LCD. Just add the .zip library to the IDE and reupload.
 > - *Filename or extension too long*: I hit Arduino IDE issues dealing with filenames and file path lengths being too long which I couldn't resolve, so I used VSCode with PlatformIO instead. More info in [this thread](https://github.com/olikraus/U8glib_Arduino/issues/9 "Filename or extension too long"), but you may be able to figure this out.
 
+---
+
 ## 2. Update using Visual Studio with PlatformIO
 
 Download Visual Studio Code, and get the PlatformIO plugin from the marketplace. 
 
 Open the Marlin-2.0.x folder in VSCode and you should see the folder open and with your configuration files in the file explorer.
 
-The flashing process works for both 8-bit and 32-bit boards.
+>The flashing process works for both 8-bit and 32-bit boards.
 
 Here's the important part: 
 1. select the PlatformIO extension icon on the left toolbar
 2. under *Project Tasks* select env:sanguino1284p
 3. Select *Upload* to build and upload to the Melzi board.
 
-> If you get a problem, try comparing the device COM port with the COM port VSCode tried to upload to. It does autodetect the COM port, but it can be fixed usually by restarting VSCode. 
+If you get a problem, try comparing the device COM port with the COM port VSCode tried to upload to. It does autodetect the COM port, but it can be fixed usually by restarting VSCode. 
 
 Errors I ran into:
 
-> - *The board doesn't have enough memory*: It's an 8-bit board so it only has 128K memory, very little by modern standards! Marlin firmware, espeically 2.0 and above can definitely exceed this limit by default. [This thread](https://github.com/MarlinFirmware/Marlin/issues/5216 "Reduding firmware size 1") and [this article](https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/ "Reducing firmware size 2") provide some insight into how to fix it. A good rule of thumb is that the firmware should take at most **98%** of the board's memory. It comes down to removing unnecessary firmware features. I removed audio support and chose a smaller font size and logo which brought the compiled firmware under the memory limit with plenty of room at right around 124K (was at 30.1K before).
+> - *The board doesn't have enough memory*: It's an 8-bit board so it only has 128K memory, very little by modern standards! A good rule of thumb is that the firmware should take at most **98%** of the board's memory. Marlin firmware, espeically 2.0 and above can definitely exceed this limit by default. [This thread](https://github.com/MarlinFirmware/Marlin/issues/5216 "Reduding firmware size 1") and [this article](https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/ "Reducing firmware size 2") provide some insight into how to fix it. It comes down to removing unnecessary firmware features. I removed audio support and chose a smaller font size and logo which brought the compiled firmware under the memory limit with plenty of room at right around 124K (was at 30.1K before).
+
+---
 
 ## 3. Using the Octoprint Firmware Updater Plugin
 
@@ -162,14 +174,14 @@ I haven't used this one yet, but likely will in the future since I regularly emp
 |	STM32 			|	stm32flash		|
 
 After finding the model write down the important things (For the CR-10 ATmega board write down these:)
-> - AVR MCU type:			ATmega1284p
-> - path to avrdude:		/usr/bin/avrdude  (can be found by running `which avrdude`)
-> - AVR Programmer Type:	arduino
+ - AVR MCU type: ATmega1284p
+ - path to avrdude: /usr/bin/avrdude  (can be found by running `which avrdude`)
+ - AVR Programmer Type:	arduino
 			
 Optional: Baud rate: 115200 for cr-10
 
 After the plugin is set up: 
-    Select the COM port to communicate with the board
-    Select a firmware file, either located on the filesystem or via a URL
-    Click the appropriate Flash from button
-    Wait for the firmware update to complete
+1. Select the COM port to communicate with the board
+2. Select a firmware file, either located on the filesystem or via a URL
+3. Click the appropriate Flash from button
+4. Wait for the firmware update to complete
