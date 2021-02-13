@@ -6,8 +6,7 @@ This is a guide I wrote for myself in case I ever need to flash a CR-10 bootload
 
 This is ONLY for the CR-10 3D printer! The general process may apply to most 3D printers but any specific firmware, AVRISP, flashing method, is device specific! The instructions are for Windows 10, although it's probably easier on a Mac/Linux due to drivers being built in. 
     
-#### Note: 
-I ***strongly advise against*** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](https://marlinfw.org/meta/download/ "Marlin Firmware") in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config. Check **below** to see what I changed. **EDIT HERE**
+Note: I ***strongly advise against*** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](https://marlinfw.org/meta/download/ "Marlin Firmware") in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config. Check **below** to see what I changed. **EDIT HERE**
 	
 Probably the only file you'll need is the CH340 driver if you are on Windows 10 for the Melzi board. 
 
@@ -28,13 +27,19 @@ In order for 3D printer firmware to be updated, it must first have a bootloader.
 | Atmega644p 	|	arduino 	 |	Sanguinololu, Melzi		|
 | Atmega32u4 	|	avr109 		 |	Prusa MMU, Prusa CW1	|
 
+### Parts List & Wiring
+
 You will need:
 - 1 Arduino Uno
 - 5 female-to-female gpio cables
 - 1 female-to-male gpio cable
 - USB cables for the Arduino Uno and the Melzi.
 
-Connect the Uno to the IDE and select the right COM port. Now we're going to go to File -> Examples -> ArduinoISP -> Select the ArduinoISP file and upload it to the Uno (of course make sure to select the Arduino Uno in the boards manager).
+Connect the Uno to the IDE and select the right COM port. Now we're going to go to 
+	File
+		Examples
+			ArduinoISP
+				Select the ArduinoISP file and upload it to the Uno (of course make sure to select the Arduino Uno in the boards manager).
 
 Unplug the printer and unscrew the bottom panel. Remove power supply but be careful due to the short wires. Just so long as we can see/access the main board inside. There will be 6 pins in a 2x3 arrangement at an edge of both the Arduino Uno board and the Melzi board. 
 
@@ -42,7 +47,7 @@ Unplug the printer and unscrew the bottom panel. Remove power supply but be care
 
 Attach the cables as shown below, each pin corresponds directly with the same pin on the other board except for the reset pin on the Melzi which plugs into digital pin 10 on the Uno. The reset pin on the Uno will remain unconnected.
 
-#### Melzi ---> Arduino Uno
+#### Melzi to Arduino Uno Wiring
 - MISO ----> MISO
 - VCC -----> VCC
 - SCK -----> SCK
@@ -56,8 +61,9 @@ If you are on a version of Melzi before v1.1.4 there is a little switch on it th
 
 >**WARNING**: double check these conenctions are correct! You don't want to fry anything.
 
->Both boards should power on when either one is plugged in.
+Both boards should power on when either one is plugged in.
 
+### Arduino IDE setup
 After that, it's time to set up the [Arduino IDE](https://www.arduino.cc/en/software "Arduino Software Downloads")! I used v1.18.13. You'll need the right board drivers, for the Melzi board get the the [Sanguino](https://github.com/Lauszus/sanguino) add-on for the 3D printer hardware. Just paste this link into the add-on board within the IDE preferences: ```https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json```
 
 >Check which COM port the Uno and Melzi appear on by plugging them in. Windows 10 may need a driver if it doesn't show up in the COM ports in Device Manager. Download the driver I got [here from TH3D](https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/), but you can also download the copy above (CH341SER.exe is the CH430 driver). Here is an [alternate CH340 driver download](https://sparks.gogo.co.nz/ch340.html). If the install fails, click 'uninstall' and then re-run the installer again it should succeed. Look up TH3D firmware to give it a shot, they seem to have some popularity due to ease of use and installation of their firmware.
@@ -94,7 +100,7 @@ If your board already had a bootloader or you just flashed one, now's the time t
 
 The configuration files don't come by default in the firmware anymore and are on a separate download from the webpage.
 Follow this path:
-	config
+>	config
 		examples
 			Creality
 				CR-10
