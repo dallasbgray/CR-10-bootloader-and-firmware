@@ -19,13 +19,14 @@ In order for 3D printer firmware to be updated, it must first have a bootloader.
 
 [This YouTube video](https://www.youtube.com/watch?v=7J7NYnxL5vA "Creality CR-10 Marlin Firmware Upgrade-Chris's Basement") was very helpful for figuring out this process.
 
-My CR-10 came with firmware version 1.1.0 on the Creality [Melzi](https://www.reprap.org/wiki/Melzi#Introduction "Melzi documentation") v1.1.4 board with the ATmega1284p microcontroller.
+>My CR-10 came with firmware version 1.1.0 on the Creality [Melzi](https://www.reprap.org/wiki/Melzi#Introduction "Melzi documentation") v1.1.4 board with the ATmega1284p microcontroller.
 
-        AVR MCU 	    Programmer 	Example Board
-		Atmega1284p 	arduino 	Anet A series, Creality, Ender, etc. (CR-10 has this one)
-		Atmega2560 		wiring 		RAMPS, RAMbo, etc.
-		Atmega644p 		arduino 	Sanguinololu, Melzi
-		Atmega32u4 		avr109 		Prusa MMU, Prusa CW1
+| AVR MCU 		|	Programmer	 | 	Example Board	|
+| ------------- | -------------- | ------------------ |
+| Atmega1284p 	|	arduino 	 |	Anet A series, Creality, Ender, etc. (CR-10 has this one)  |
+| Atmega2560 	|	wiring 		 |	RAMPS, RAMbo, etc.		|
+| Atmega644p 	|	arduino 	 |	Sanguinololu, Melzi		|
+| Atmega32u4 	|	avr109 		 |	Prusa MMU, Prusa CW1	|
 
 You will need:
 - 1 Arduino Uno
@@ -53,17 +54,17 @@ Attach the cables as shown below, each pin corresponds directly with the same pi
 
 If you are on a version of Melzi before v1.1.4 there is a little switch on it that lets you switch from the PSU power to USB power, so go ahead and flip the switch so it will be powered via the USB cable you had set aside from earlier.
 
-**WARNING**: double check these conenctions are correct! You don't want to fry anything.
+>**WARNING**: double check these conenctions are correct! You don't want to fry anything.
 
-Both boards should power on when either one is plugged in.
+>Both boards should power on when either one is plugged in.
 
-After that, it's time to set up the [Arduino IDE](https://www.arduino.cc/en/software "Arduino Software Downloads")! I used v1.18.13. You'll need the right board drivers, for the Melzi board get the the [Sanguino](https://github.com/Lauszus/sanguino) add-on for the 3D printer hardware. Just paste this link into the add-on board within the IDE preferences: https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json
+After that, it's time to set up the [Arduino IDE](https://www.arduino.cc/en/software "Arduino Software Downloads")! I used v1.18.13. You'll need the right board drivers, for the Melzi board get the the [Sanguino](https://github.com/Lauszus/sanguino) add-on for the 3D printer hardware. Just paste this link into the add-on board within the IDE preferences: ```https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json```
 
- Check which COM port the Uno and Melzi appear on by plugging them in. Windows 10 may need a driver if it doesn't show up in the COM ports in Device Manager. Download the driver I got [here from TH3D](https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/), but you can also download the copy above (CH341SER.exe is the CH430 driver). Here is an [alternate CH340 driver download](https://sparks.gogo.co.nz/ch340.html). If the install fails, click 'uninstall' and then re-run the installer again it should succeed. Look up TH3D firmware to give it a shot, they seem to have some popularity due to ease of use and installation of their firmware.
+>Check which COM port the Uno and Melzi appear on by plugging them in. Windows 10 may need a driver if it doesn't show up in the COM ports in Device Manager. Download the driver I got [here from TH3D](https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/), but you can also download the copy above (CH341SER.exe is the CH430 driver). Here is an [alternate CH340 driver download](https://sparks.gogo.co.nz/ch340.html). If the install fails, click 'uninstall' and then re-run the installer again it should succeed. Look up TH3D firmware to give it a shot, they seem to have some popularity due to ease of use and installation of their firmware.
 
 If this process fails you will have erased the firmware on the board and will not have a bootloader to load firmware over USB so you would have to burn a bootloader successfully in order to get firmware back on the board.
 
-###### To burn the bootloader plug in the Arduino Uno, go to Tools and select:
+#### To burn the bootloader plug in the Arduino Uno, go to Tools and select:
 1. Sanguino as the board
 2. Processor as the ATmega1248p (16MHz)
 3. Port as the Arduino Uno (NOT the Sanguino/Melzi)
@@ -146,20 +147,20 @@ Errors I ran into:
 
 I haven't used this one yet, but likely will in the future since I regularly employ Octoprint to start/monitor 3D prints.
 
-    Board Family 	Flashing Tool
-			ATmega 		avrdude
-			AT90USB 	dfu-programmer
-			LPC1768 	lpc1768
-			SAM 		bossac
-			STM32 		stm32flash	
+|	Board Family 	|	Flashing Tool	|
+| ----------------- | ----------------- |
+|	ATmega 			|	avrdude			|
+|	AT90USB 		|	dfu-programmer	|
+|	LPC1768 		|	lpc1768			|
+|	SAM 			|	bossac			|
+|	STM32 			|	stm32flash		|
 
-
-            After finding the model write down the important things (For the CR-10 ATmega board write down these:)
-			AVR MCU type:			ATmega1284p
-			path to avrdude:		/usr/bin/avrdude  (can be found by running 'which avrdude')
-			AVR Programmer Type:	arduino
+After finding the model write down the important things (For the CR-10 ATmega board write down these:)
+>AVR MCU type:			ATmega1284p
+>path to avrdude:		/usr/bin/avrdude  (can be found by running 'which avrdude')
+>AVR Programmer Type:	arduino
 			
-			Optional: Baud rate: 115200 for cr-10
+Optional: Baud rate: 115200 for cr-10
 
 After the plugin is set up: 
     Select the COM port to communicate with the board
