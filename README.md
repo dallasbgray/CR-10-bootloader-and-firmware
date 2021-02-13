@@ -10,7 +10,7 @@ This is ONLY for the CR-10 3D printer! The general process may apply to most 3D 
 
 ---
 
-# Flashing the Bootloader
+## Flashing the Bootloader
 
 In order for 3D printer firmware to be updated, it must first have a bootloader. Newer printers with 32-bit boards usually come with that pre-installed so this entire section can be skipped. In the case with the CR-10, it has an 8-bit board (Melzi with the ATmega1284p) and lacks a bootloader so we've got to add one. 
 
@@ -26,7 +26,7 @@ In order for 3D printer firmware to be updated, it must first have a bootloader.
 
 >My CR-10 came with firmware version 1.1.0 on the Creality [Melzi](https://www.reprap.org/wiki/Melzi#Introduction "Melzi documentation") v1.1.4 board with the ATmega1284p microcontroller.
 
-## Parts List & Wiring
+### Parts List & Wiring
 
 You will need:
 - 1 Arduino Uno
@@ -48,7 +48,7 @@ Unplug the printer and unscrew the bottom panel. Remove power supply but be care
 
 Attach the cables as shown below, each pin corresponds directly with the same pin on the other board except for the reset pin on the Melzi which plugs into digital pin 10 on the Uno. The reset pin on the Uno will remain unconnected.
 
-#### Melzi to Arduino Uno Wiring
+#### Melzi to Arduino Uno wiring
 - MISO ----> MISO
 - VCC -----> VCC
 - SCK -----> SCK
@@ -102,7 +102,7 @@ If you are curious about the issue with FDTI chips that makes the Melzi sometime
 
 ---
 
-# Flash the Firmware
+## Flash the Firmware
 
 If your board already had a bootloader or you just flashed one, now's the time to update the firmware! The CR-10 (our printer) uses Marlin, so download the latest stable release of the [Marlin Firmware](https://marlinfw.org/meta/download/ "Marlin Firmware"). If you're not sure check out this [Marlin documentation](https://marlinfw.org/docs/hardware/boards.html).
 
@@ -173,7 +173,7 @@ Check what board family your board is in, based upon the board's processor.
 |	SAM 			|	bossac			|
 |	STM32 			|	stm32flash		|
 
-> The CR-10 Melzi using the ATmega1284p is in the ATmega board family
+> The CR-10 Melzi with the ATmega1284p is in the ATmega board family
 
 To be flash an ATmega board, `avrdude` has to be installed on the Raspberry Pi, I used SSH to connect to the Pi:
 `sudo apt-get update`
