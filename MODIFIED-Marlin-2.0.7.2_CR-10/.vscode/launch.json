@@ -12,7 +12,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/build/mega2560/firmware.elf",
+            "executable": "c:/Users/dalla/Desktop/CR-10-bootloader-and-firmware/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/build/mega2560/firmware.elf",
             "projectEnvName": "mega2560",
             "toolchainBinDir": "C:/Users/dalla/.platformio/packages/toolchain-atmelavr/bin",
             "preLaunchTask": {
@@ -25,7 +25,7 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "c:/Users/dalla/Desktop/CR-10-Marlin/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/build/mega2560/firmware.elf",
+            "executable": "c:/Users/dalla/Desktop/CR-10-bootloader-and-firmware/MODIFIED-Marlin-2.0.7.2_CR-10/.pio/build/mega2560/firmware.elf",
             "projectEnvName": "mega2560",
             "toolchainBinDir": "C:/Users/dalla/.platformio/packages/toolchain-atmelavr/bin",
             "internalConsoleOptions": "openOnSessionStart"
