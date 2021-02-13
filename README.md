@@ -18,7 +18,7 @@ In order for 3D printer firmware to be updated, it must first have a bootloader.
 
 
 | AVR MCU 		|	Programmer	 | 	Example Board	|
-| ------------- | -------------- | ------------------ |
+| :------------ | :------------- | :----------------- |
 | Atmega1284p 	|	arduino 	 |	Anet A series, Creality, Ender, etc. (CR-10 has this one)  |
 | Atmega2560 	|	wiring 		 |	RAMPS, RAMbo, etc.		|
 | Atmega644p 	|	arduino 	 |	Sanguinololu, Melzi		|
@@ -35,10 +35,10 @@ You will need:
 - USB cables for the Arduino Uno and the Melzi.
 
 Connect the Uno to the IDE and select the right COM port. Now we're going to go to 
-	File
-		Examples
-			ArduinoISP
-				Select the ArduinoISP file and upload it to the Uno (of course make sure to select the Arduino Uno in the boards manager).
+>File
+>>Examples
+>>>ArduinoISP
+>>>>Select the ArduinoISP file and upload it to the Uno (of course make sure to select the Arduino Uno in the boards manager).
 
 Unplug the printer and unscrew the bottom panel. Remove power supply but be careful due to the short wires. Just so long as we can see/access the main board inside. There will be 6 pins in a 2x3 arrangement at an edge of both the Arduino Uno board and the Melzi board. 
 
@@ -101,16 +101,16 @@ If your board already had a bootloader or you just flashed one, now's the time t
 The configuration files don't come by default in the firmware anymore and are on a separate download from the webpage.
 Follow this path:
 >config
-    examples
-        Creality
-            CR-10
-                CrealityV1
+>>examples
+>>>Creality
+>>>>CR-10
+>>>>>CrealityV1
 
 Configuration.h and Configuration_adv.h are needed for Marlin to configure the printer properly, and _Bootscreen.h and _Statusscreen.h are if your 3D printer has an LCD to use. 
 
 Copy those files and past them in the "Marlin" directory of the firmware located here (yes, please select *replace files in destination*):
->    Marlin-2.0.x
-         Marlin
+>Marlin-2.0.x
+>>Marlin
 
 [This other YouTube video](https://www.youtube.com/watch?v=Ib188-ACa08 ) was very helpful for figuring out this process.
  
@@ -127,7 +127,7 @@ Select **upload** and you're all set, the firmware has been uploaded to the boar
 
 Errors I ran into:
 
-> -  *Header files not found for U8glib*: This means you're missing the [U8glib_Arduino library](https://github.com/olikraus/U8glib_Arduino) used for the LCD. Just add the .zip library to the IDE and reupload.
+> - *Header files not found for U8glib*: This means you're missing the [U8glib_Arduino library](https://github.com/olikraus/U8glib_Arduino) used for the LCD. Just add the .zip library to the IDE and reupload.
 > - *Filename or extension too long*: I hit Arduino IDE issues dealing with filenames and file path lengths being too long which I couldn't resolve, so I used VSCode with PlatformIO instead. More info in [this thread](https://github.com/olikraus/U8glib_Arduino/issues/9 "Filename or extension too long"), but you may be able to figure this out.
 
 ## 2. Update using Visual Studio with PlatformIO
