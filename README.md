@@ -6,9 +6,7 @@ This is a guide I wrote for myself in case I ever need to flash a CR-10 bootload
 
 This is ONLY for the CR-10 3D printer! The general process may apply to most 3D printers but any specific firmware, AVRISP, flashing method, is device specific! The instructions are for Windows 10, although it's probably easier on a Mac/Linux due to drivers being built in. 
     
-Note: I ***strongly advise against*** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](https://marlinfw.org/meta/download/ "Marlin Firmware") in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config. Check **below** to see what I changed. **EDIT HERE**
-	
-Probably the only file you'll need is the CH340 driver if you are on Windows 10 for the Melzi board. 
+>Note: I ***strongly advise against*** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](https://marlinfw.org/meta/download/ "Marlin Firmware") in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config. Check **below** to see what I changed.
 
 ---
 
@@ -69,13 +67,14 @@ After that, it's time to set up the [Arduino IDE](https://www.arduino.cc/en/soft
 
 >Check which COM port the Uno and Melzi appear on by plugging them in. Windows 10 may need a driver if it doesn't show up in the COM ports in Device Manager. Download the driver I got [here from TH3D](https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/), but you can also download the copy above (CH341SER.exe is the CH430 driver). Here is an [alternate CH340 driver download](https://sparks.gogo.co.nz/ch340.html). If the install fails, click 'uninstall' and then re-run the installer again it should succeed. Look up TH3D firmware to give it a shot, they seem to have some popularity due to ease of use and installation of their firmware.
 
-If this process fails you will have erased the firmware on the board and will not have a bootloader to load firmware over USB so you would have to burn a bootloader successfully in order to get firmware back on the board.
+If this process fails you will have erased the firmware on the board and will not have a bootloader to load firmware back onto the board again. You do need to burn a bootloader successfully in order to upload any firmware back on the board, but if your wiring is correct and the Arduino IDE Tools options are correct you should have no issues.
+
+## Burning the Bootloader
 
 #### To burn the bootloader plug in the Arduino Uno, go to Tools and select:
 1. Sanguino as the board
 2. Processor as the ATmega1248p (16MHz)
-3. Port as the Arduino Uno (NOT the Sanguino/Melzi)
-- I know I know, it's a lot of names for the same board. Also, the ISP is an In System Programmer not your Internet Service Provider, so we're using the Uno in order to program the Melzi.
+3. COM Port as the Arduino Uno (NOT the Melzi/Sanguino)
 4. Programmer as Arduino as ISP (very important to select "Arduino as ISP" and not "ArduinoISP" or the other alternatives) 
 5. Select burn bootloader
 
@@ -101,17 +100,17 @@ If your board already had a bootloader or you just flashed one, now's the time t
 
 The configuration files don't come by default in the firmware anymore and are on a separate download from the webpage.
 Follow this path:
->	config
-		examples
-			Creality
-				CR-10
-					CrealityV1
+>config
+    examples
+        Creality
+            CR-10
+                CrealityV1
 
 Configuration.h and Configuration_adv.h are needed for Marlin to configure the printer properly, and _Bootscreen.h and _Statusscreen.h are if your 3D printer has an LCD to use. 
 
 Copy those files and past them in the "Marlin" directory of the firmware located here (yes, please select *replace files in destination*):
-	Marlin-2.0.x
-		Marlin
+>    Marlin-2.0.x
+         Marlin
 
 [This other YouTube video](https://www.youtube.com/watch?v=Ib188-ACa08 ) was very helpful for figuring out this process.
  
@@ -129,7 +128,7 @@ Select **upload** and you're all set, the firmware has been uploaded to the boar
 Errors I ran into:
 
 > -  *Header files not found for U8glib*: This means you're missing the [U8glib_Arduino library](https://github.com/olikraus/U8glib_Arduino) used for the LCD. Just add the .zip library to the IDE and reupload.
->  - *Filename or extension too long*: I hit Arduino IDE issues dealing with filenames and file path lengths being too long which I couldn't resolve, so I used VSCode with PlatformIO instead. More info in [this thread](https://github.com/olikraus/U8glib_Arduino/issues/9 "Filename or extension too long"), but you may be able to figure this out.
+> - *Filename or extension too long*: I hit Arduino IDE issues dealing with filenames and file path lengths being too long which I couldn't resolve, so I used VSCode with PlatformIO instead. More info in [this thread](https://github.com/olikraus/U8glib_Arduino/issues/9 "Filename or extension too long"), but you may be able to figure this out.
 
 ## 2. Update using Visual Studio with PlatformIO
 
