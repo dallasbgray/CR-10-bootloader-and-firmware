@@ -42,7 +42,9 @@ Connect the Uno to the IDE and select the right COM port. Now we're going to go 
 
 Unplug the printer and unscrew the bottom panel. Remove power supply but be careful due to the short wires. Just so long as we can see/access the main board inside. There will be 6 pins in a 2x3 arrangement at an edge of both the Arduino Uno board and the Melzi board. 
 
+<p align="center">
 <img src="/img/melzi_pinout.jpg" width=400 alt="Figure 1: Melzi Pinout">
+</p>
 
 Attach the cables as shown below, each pin corresponds directly with the same pin on the other board except for the reset pin on the Melzi which plugs into digital pin 10 on the Uno. The reset pin on the Uno will remain unconnected.
 
@@ -54,7 +56,9 @@ Attach the cables as shown below, each pin corresponds directly with the same pi
 - RESET ---> Digital Pin 10
 - GND -----> GND
 
+<p align="center">
 <img src="/img/completed_wiring.jpg" width=400 alt="Figure 2: Completed Wiring">
+</p>
 
 If you are on a version of Melzi before v1.1.4 there is a little switch on it that lets you switch from the PSU power to USB power, so go ahead and flip the switch so it will be powered via the USB cable you had set aside from earlier.
 
@@ -86,7 +90,9 @@ If you're not sure it should look like this, but with the COM port for the Uno s
 
 It should be done in a few seconds and there you have it, the bootloader has been flashed to your board once and for all! Now you can update the firmware whenever you'd like!!!
 
+<p align="center">
 <img src="/img/marlin_splashscreen.jpg" width=400 alt="Figure 4: Marlin Splashscreen">
+</p>
 
 There's currently no firmware on the board now and you'll get a blank screen, so check out the steps below to add the firmware!
 
