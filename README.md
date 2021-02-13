@@ -6,7 +6,7 @@ This is a guide I wrote for myself in case I ever need to flash a CR-10 bootload
 
 This is ONLY for the CR-10 3D printer! The general process applies to most 3D printers but any specific firmware, AVRISP setup, flashing method, etc, is device specific! The instructions are for Windows 10, although it's probably easier on a Mac/Linux due to drivers being built in for the boards.  
     
->Note: I ***strongly advise against*** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](https://marlinfw.org/meta/download/ "Marlin Firmware") in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config.
+>Note: I ***STRONGLY ADVISE AGAINST*** using the firmware I have uploaded here and instead suggest you go to [Marlin's website](https://marlinfw.org/meta/download/ "Marlin Firmware") in order get the latest firmware. I modified the firmware above to **remove several features** in order to fit it on the 8-bit board, and this is just me saving my last known good config.
 
 ---
 
@@ -95,9 +95,9 @@ It should be done in a few seconds and there you have it, the bootloader has bee
 
 There's currently no firmware on the board now and you'll get a blank screen, so check out the steps [below](#flash-the-firmware) to add the firmware!
 
-References: This [Instructable article](https://www.instructables.com/Flashing-a-Bootloader-to-the-CR-10/ "Instructables Flashing a Bootloader to the CR-10") was very informative as well as the [YouTube video](2) mentioned above.
-
 If you are curious about the issue with FDTI chips that makes the Melzi sometimes not appear on the COM ports check out this [FTDI driver problem](https://www.reprap.org/wiki/Melzi#Can.27t_connect_to_the_Melzi_.28FTDI_driver_problem.29 "Melzi problem/workaround documentation on RepRap") and look at the threads which discuss the ripoff chips that drivers tend to have issues with. In theory it was fixed, but even with Windows v2004 I still had a problem with this. I solved it with the [driver from TH3D](https://support.th3dstudio.com/hc/downloads/drivers/ch340-drivers-th3d-uno-creality-v1-1-x-v4-2-x-board/ "board v1.1.4 CH340 driver download") so if you have issues try this out. For drivers for other board versions look at this [TH3D webpage](https://support.th3dstudio.com/hc/downloads/drivers/creality-printer-drivers-ft232r-chip-most-models/ "other board version driver downloads").
+
+References: This [Instructable article](https://www.instructables.com/Flashing-a-Bootloader-to-the-CR-10/ "Instructables Flashing a Bootloader to the CR-10") was very informative as well as the [YouTube video](2) mentioned above.
 
 ---
 
@@ -180,8 +180,8 @@ Check what flashing tool your board uses based upon the board's processor family
 > The CR-10 Melzi with the ATmega1284p is in the ATmega board family
 
 To flash an ATmega board, `avrdude` has to be installed on the Raspberry Pi, I used SSH to connect to the Pi:
-```sudo apt-get update
-&& sudo apt-get install avrdude
+```
+sudo apt-get update && sudo apt-get install avrdude
 ```
 
 Use this plugin configuration for the CR-10 ATmega board
@@ -196,3 +196,5 @@ After the plugin is set up:
 1. Select the COM port
 2. Select a firmware file
 3. Click the right *flash from* button
+
+References: This [Youtube video](https://www.youtube.com/watch?v=Ib188-ACa08) mentioned above was quite helpful.
