@@ -106,12 +106,7 @@ References: This [Instructable article](https://www.instructables.com/Flashing-a
 If your board already had a bootloader or you just flashed one, now's the time to update the firmware! The CR-10 uses Marlin, so download the latest stable release of the [Marlin Firmware](https://marlinfw.org/meta/download/ "Marlin Firmware"). If you're not sure check out this [Marlin documentation](https://marlinfw.org/docs/hardware/boards.html). An alternative is to use TH3D's version of the Marlin firmware, they seem to have some popularity due to ease of use and installation of their firmware.
 
 The configuration files don't come by default in the firmware anymore and are on a separate download from the webpage.
-Follow this path:
-> config
->> examples
->>> Creality
->>>> CR-10
->>>>> CrealityV1
+> Copies of the default configs are available in the **CR-10 Configuration** directory.
 
 Configuration.h and Configuration_adv.h are needed for Marlin to configure the printer properly, and _Bootscreen.h and _Statusscreen.h are if your 3D printer has an LCD to use. 
 
@@ -159,7 +154,27 @@ Errors I ran into:
 > - *The board doesn't have enough memory*: It's an 8-bit board so it only has 128K memory, very little by modern standards! A good rule of thumb is that the firmware should take at most **98%** of the board's memory. Marlin firmware, espeically 2.0 and above can easily exceed this limit by default. [This thread](https://github.com/MarlinFirmware/Marlin/issues/5216 "Reduding firmware size 1") and [this article](https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/ "Reducing firmware size 2") provide some insight into how to fix it. It comes down to removing unnecessary firmware features. I removed audio support and chose a smaller font size and logo which brought the compiled firmware under the memory limit with plenty of room at right around 124K (was at 30.1K before). I know mine goes a little over the 98% memory, but I am alright taking relatively small risks with my hardware/software on this project.
 
 Solution: 
-> - Solution with code changes will be added here soon!
+
+I simply opened the Configuration.h and Configuration_adv.h files and removed a few of the features I didn't care for until it compiled to the amount of memory I desired.
+
+In Configuration.h comment out:
+```
+#define SPEAKER
+```
+
+In Configuration_adv.h uncomment:
+```
+#define BOOT_MARLIN_LOGO_SMALL
+```
+```
+#define SDCARD_READONLY
+```
+
+<p align="center">
+<img src="/img/firmware_compiled.jpg" width=400 alt="Figure 5: Arduino IDE Tools Menu">
+</p>
+
+Removing the speaker definition and defining a smaller sized boot logo and a read-only SD card slot I don't intend to use anyways was how I brought the compiled memory down 6K in order to fit on my board. There are certainly more features which can be changed without affecting the core 3D printer operation so this is a very doable solution.
 
 ### 3. Flash using the Octoprint Firmware Updater Plugin
 
@@ -198,3 +213,11 @@ After the plugin is set up:
 3. Click the right *flash from* button
 
 References: This [Youtube video](https://www.youtube.com/watch?v=Ib188-ACa08) mentioned above was quite helpful.
+
+## License
+
+I copied the section below from the [Marlin Github repository's README](https://github.com/MarlinFirmware/Marlin) because I have much of their code uploaded above. I have chosen to put this repository under the GPL-3.0 License as well to retain the credit to the developers and make this available for public use (as directed by the license of course).
+
+"Marlin is published under the [GPL license](/LICENSE) because we believe in open development. The GPL comes with both rights and obligations. Whether you use Marlin firmware as the driver for your open or closed-source product, you must keep Marlin open, and you must provide your compatible Marlin source code to end users upon request. The most straightforward way to comply with the Marlin license is to make a fork of Marlin on Github, perform your modifications, and direct users to your modified fork.
+
+While we can't prevent the use of this code in products (3D printers, CNC, etc.) that are closed source or crippled by a patent, we would prefer that you choose another firmware or, better yet, make your own."
