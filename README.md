@@ -154,7 +154,27 @@ Errors I ran into:
 > - *The board doesn't have enough memory*: It's an 8-bit board so it only has 128K memory, very little by modern standards! A good rule of thumb is that the firmware should take at most **98%** of the board's memory. Marlin firmware, espeically 2.0 and above can easily exceed this limit by default. [This thread](https://github.com/MarlinFirmware/Marlin/issues/5216 "Reduding firmware size 1") and [this article](https://crosslink.io/2020/08/14/shrinking-marlin-2-0-how-to-reduce-firmware-size-for-8-bit-boards-and-still-use-a-bltouch-and-the-filament-sensor/ "Reducing firmware size 2") provide some insight into how to fix it. It comes down to removing unnecessary firmware features. I removed audio support and chose a smaller font size and logo which brought the compiled firmware under the memory limit with plenty of room at right around 124K (was at 30.1K before). I know mine goes a little over the 98% memory, but I am alright taking relatively small risks with my hardware/software on this project.
 
 Solution: 
-> - Solution with code changes will be added here soon!
+
+I simply opened the Configuration.h and Configuration_adv.h files and removed a few of the features I didn't care for until it compiled to the amount of memory I desired.
+
+In Configuration.h I commented out:
+```
+#define SPEAKER
+```
+
+In Configuration.h I uncommented:
+```
+#define BOOT_MARLIN_LOGO_SMALL
+```
+```
+#define SDCARD_READONLY
+```
+
+<p align="center">
+<img src="/img/firmware_compiled.jpg" width=400 alt="Figure 5: Arduino IDE Tools Menu">
+</p>
+
+Removing the speaker definition and defining a smaller sized boot logo and a read-only SD card slot I don't intend to use anyways was how I brought the compiled memory down 6K in order to fit on my board. There are certainly more features which can be changed without affecting the core 3D printer operation so this is a very doable solution.
 
 ### 3. Flash using the Octoprint Firmware Updater Plugin
 
