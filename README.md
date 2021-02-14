@@ -106,7 +106,7 @@ References: This [Instructable article](https://www.instructables.com/Flashing-a
 If your board already had a bootloader or you just flashed one, now's the time to update the firmware! The CR-10 uses Marlin, so download the latest stable release of the [Marlin Firmware](https://marlinfw.org/meta/download/ "Marlin Firmware"). If you're not sure check out this [Marlin documentation](https://marlinfw.org/docs/hardware/boards.html). An alternative is to use TH3D's version of the Marlin firmware, they seem to have some popularity due to ease of use and installation of their firmware.
 
 The configuration files don't come by default in the firmware anymore and are on a separate download from the webpage.
->I added copies of them in the CR-10 Configuration directory.
+>I added copies of them in the **CR-10 Configuration** directory.
 
 Configuration.h and Configuration_adv.h are needed for Marlin to configure the printer properly, and _Bootscreen.h and _Statusscreen.h are if your 3D printer has an LCD to use. 
 
@@ -193,3 +193,11 @@ After the plugin is set up:
 3. Click the right *flash from* button
 
 References: This [Youtube video](https://www.youtube.com/watch?v=Ib188-ACa08) mentioned above was quite helpful.
+
+## License
+
+I copied the section below from the [Marlin Github repository's README](https://github.com/MarlinFirmware/Marlin) because I have much of their code uploaded above. I have chosen to put this repository under the GPL-3.0 License as well to retain the credit to the developers and make this available for public use (as directed by the license of course).
+
+"Marlin is published under the [GPL license](/LICENSE) because we believe in open development. The GPL comes with both rights and obligations. Whether you use Marlin firmware as the driver for your open or closed-source product, you must keep Marlin open, and you must provide your compatible Marlin source code to end users upon request. The most straightforward way to comply with the Marlin license is to make a fork of Marlin on Github, perform your modifications, and direct users to your modified fork.
+
+While we can't prevent the use of this code in products (3D printers, CNC, etc.) that are closed source or crippled by a patent, we would prefer that you choose another firmware or, better yet, make your own."
