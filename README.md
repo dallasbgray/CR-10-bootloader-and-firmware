@@ -106,7 +106,7 @@ References: This [Instructable article](https://www.instructables.com/Flashing-a
 If your board already had a bootloader or you just flashed one, now's the time to update the firmware! The CR-10 uses Marlin, so download the latest stable release of the [Marlin Firmware](https://marlinfw.org/meta/download/ "Marlin Firmware"). If you're not sure check out this [Marlin documentation](https://marlinfw.org/docs/hardware/boards.html). An alternative is to use TH3D's version of the Marlin firmware, they seem to have some popularity due to ease of use and installation of their firmware.
 
 The configuration files don't come by default in the firmware anymore and are on a separate download from the webpage.
->I added copies of them in the **CR-10 Configuration** directory.
+> Copies of the default configs are available in the **CR-10 Configuration** directory.
 
 Configuration.h and Configuration_adv.h are needed for Marlin to configure the printer properly, and _Bootscreen.h and _Statusscreen.h are if your 3D printer has an LCD to use. 
 
@@ -157,12 +157,12 @@ Solution:
 
 I simply opened the Configuration.h and Configuration_adv.h files and removed a few of the features I didn't care for until it compiled to the amount of memory I desired.
 
-In Configuration.h I commented out:
+In Configuration.h comment out:
 ```
 #define SPEAKER
 ```
 
-In Configuration.h I uncommented:
+In Configuration_adv.h uncomment:
 ```
 #define BOOT_MARLIN_LOGO_SMALL
 ```
