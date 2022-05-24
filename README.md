@@ -2,7 +2,7 @@
 
 [//]: # (just experimenting with hiding comments ;)
 
-This is a guide I wrote for myself in case I ever need to flash a CR-10 bootloader or firmware again. It's not comprehensive and will assume you know quite a few things like how to install packages in Debian and that you are familiar with the Arduino IDE and Octoprint, but it will offer guidance so you'll know what to Google next! Most of this information is compiled from a number of videos, articles, and forum threads which I will link appropriately. 
+This is a guide I wrote for myself in case I ever need to flash a CR-10 bootloader or firmware again. It's not comprehensive and will assume you know some Linux basics and that you are familiar with the Arduino IDE and Octoprint, but it will offer guidance so you'll know what to Google next! Most of this information is compiled from a number of videos, articles, and forum threads which I will link appropriately. 
 
 This is ONLY for the CR-10 3D printer! The general process applies to most 3D printers but any specific firmware, AVRISP setup, flashing method, etc, is device specific! The instructions are for Windows 10, although it's probably easier on a Mac/Linux due to drivers being built in for the boards.  
     
